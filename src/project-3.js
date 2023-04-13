@@ -9,18 +9,18 @@ class Project3 extends LitElement {
 
   static styles = css` 
       .wrapper {
-        display: inline-block;
-        flex-direction: column;
+        display: flex;
+        flex-direction: row;
+        gap: 10rem;
+        padding: 20px;
       }
 
       .week {
-        display: inline-block;
-        vertical-align: middle;
+        text-align: center;
       }
 
-      .description {
-        display: inline-block;
-        vertical-align: middle;
+      .time {
+        font-family: "OpenSans-Light", Arial, sans-serif;
       }
   `;
 
@@ -33,11 +33,13 @@ class Project3 extends LitElement {
     return html`
       <div class="wrapper">
         <div class="week">
-          <h2 id="header">Week 1</h2>
+          <p>WEEK</p>
+          <p>1</p>
         </div>
         <div class="Description">
-          <p>2 hours to complete</p>
-          <h2>Misconceptions about happiness</h2>
+          <p class="time">2 hours to complete</p>
+          <p>Misconceptions about happiness</p>
+          <p>In this module, you will learn what it means to be happy and why pursuing happiness is not a pointless endeavor. Dr. Santos addresses how our minds lie to us and how the science shows that our misconceptions about money, grades, and social media are holding us back from implementing the techniques studied in positive psychology.</p>
         </div>
       </div>
     `;
