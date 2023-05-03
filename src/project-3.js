@@ -1,10 +1,17 @@
 import { LitElement, html, css } from 'lit';
+import "./indiv-week.js";
 
-const logo = new URL('../assets/open-wc-logo.svg', import.meta.url).href;
-
-class Project3 extends LitElement {
-  static properties = {
-    header: { type: String },
+export class Project3 extends LitElement {
+  static get tag(){
+    return 'project-3';
+  }
+  static get properties(){
+    return{
+    things: {type: String },
+    week: {type: String },
+    title: {type: String },
+    description: {type: String}
+    }
   }
 
   static styles = css` 
@@ -26,24 +33,42 @@ class Project3 extends LitElement {
 
   constructor() {
     super();
-    this.header = 'My app';
+    this.things = [];
+    this.updateWeek();
   }
+  updateWeek() {
+    const address = new URL('../assets/things.json', import.meta.url).href;
+    const data = fetch(address).then((response) => {
+        if (response.ok) {
+            return response.json()
+        }
+        return [];
+    })
+    .then((data) => {
+        this.things = data;
+    });
+    console.log(data);
+}
+static get styles(){
+return css`
+:host{
+  display: block;
+} 
+`;
+
+}
 
   render() {
     return html`
-      <div class="wrapper">
-        <div class="week">
-          <p>WEEK</p>
-          <p>1</p>
-        </div>
-        <div class="Description">
-          <p class="time">2 hours to complete</p>
-          <p>Misconceptions about happiness</p>
-          <p>In this module, you will learn what it means to be happy and why pursuing happiness is not a pointless endeavor. Dr. Santos addresses how our minds lie to us and how the science shows that our misconceptions about money, grades, and social media are holding us back from implementing the techniques studied in positive psychology.</p>
-        </div>
-      </div>
+    <div class="wrapper">
+            ${this.things.map(thing => html`
+                <div class="item">
+                    <indiv-week week="${thing.week}" time="${thing.time}" title="${thing.title}" description="${thing.description}"></indiv-week>
+                </div>
+            `)}
+        </div> 
     `;
   }
 }
 
-customElements.define('project-3', Project3);
+customElements.define(Project3.tag, Project3);

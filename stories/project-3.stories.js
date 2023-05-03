@@ -1,5 +1,5 @@
 import { html } from 'lit';
-import '../src/project-3.js';
+import '../src/project-3';
 
 export default {
   title: 'Project3',
@@ -15,7 +15,7 @@ function Template({ title, backgroundColor }) {
       style="--project-3-background-color: ${backgroundColor || 'white'}"
       .title=${title}
     >
-    </project-3>
+</project-3>
   `;
 }
 

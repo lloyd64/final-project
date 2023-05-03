@@ -1,0 +1,22 @@
+[
+    {
+        "week": "1",
+        "time": "2 hours to complete",
+        "title": "Introduction",
+        "description": "Why take this course?"
+        
+    },
+    {
+        "week": "2",
+        "time": "2 hours to complete",
+        "title": "Misconceptions about happiness",
+        "description": "What do we think will make us happy?"
+
+    },
+    {
+        "week": "3",
+        "time": "2 hours to complete",
+        "title": "Why our expectations are so bad",
+        "description": "Why do we mispredict what makes us happy?"
+    }
+]
